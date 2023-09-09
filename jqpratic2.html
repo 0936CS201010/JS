@@ -1,0 +1,29 @@
+<script src=" https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+        $(document).ready(function(){
+            $('#btn').click(function(){
+
+                if($('#mr').is(':checked'))
+                {
+                    var pre='Mr '+$('#sn').val()
+                    var gen=' Son Of'
+                }
+                else{
+                    var pre='Miss '+$('#sn').val()
+                    var gen='Dauther Of'
+                }
+                var c=`${pre} ${gen}`
+                $('#result').html(c)
+            })
+        })
+    })
+</script>
+<html>
+    <input type="text" id="sn" placeholder="Student Name"><br><br>
+    <input  type="radio" id="mr" name="gender" value="Male">Male
+    <input  type="radio" id="fr" name="gender" value="Female">Female<br><br>
+    <input type="button" id="btn" value="Show">
+    <div id="result"></div>
+</html>

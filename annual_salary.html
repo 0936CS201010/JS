@@ -1,0 +1,22 @@
+<script>
+    function calculate()
+    {
+         var as=salary.value*12
+         var tax=as*30/100
+         var nas=as-tax    
+         var output=`<table width='25%' border='1' cellpadding='5'>`
+         output+=`<caption>Tax Calculation</caption>`
+         output+=`<tr><td><b>Salary:</b><td>${salary.value}</td></tr>`
+         output+=`<tr><td><b>Annual Salary:</b><td>${as}</td></tr>`
+         output+=`<tr><td><b>Tax:</b><td>${tax}</td></tr>`
+         output+=`<tr><td><b>Net Annual Salary:</b><td>${nas}</td></tr>`
+         output+=`</table>`
+         result.innerHTML=output
+
+    }
+</script>
+<html>
+    <p><input type="text" id="salary" placeholder="Employee Salary"></p>
+    <p><input type="button" value="Calculate Anuual Salary" onclick="calculate()"></p>
+    <p><div id="result">See Here</div></p>
+</html>

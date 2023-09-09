@@ -1,0 +1,62 @@
+<script>
+//     samsung m13	45,000
+// poco m4		12,900
+// infinix hot 20  11,500
+
+    function call() {
+        students = {
+            100: { name: "Peter Kumar", gender: "Male", "Physics": 90, "Chemistry": 78, "Math": 94, "Hindi": 79, "English": 91 },
+            200: { name: "Alice Donser", gender: "Female", "Physics": 87, "Chemistry": 88, "Math": 84, "Hindi": 91, "English": 86 },
+            // 300: { name: "Tom Cruse", gender: "Male", "Physics": 83, "Chemistry": 81, "Math": 74, "Hindi": 83, "English": 71 },
+            400: { name: "Jerry rus", gender: "Female", "Physics": 83, "Chemistry": 81, "Math": 74, "Hindi": 83, "English": 71 },
+            300: { name: "Harry Kumar", gender: "Male", "Physics": 93, "Chemistry": 91, "Math": 84, "Hindi": 93, "English": 91 },
+        }
+        var rollno = Object.keys(students)
+        var studentdetails = Object.values(students)
+
+
+        var filterresult=studentdetails.filter((item, index) => {
+            
+            item['rollno'] = rollno[index]
+            if (male.checked) 
+            { 
+                return item.gender=="Male"
+            }
+            else if(female.checked)
+            {
+                return item.gender=="Female"
+            }
+            else if(all.checked){
+                return item
+            }
+            else{
+                return item
+            }
+
+        })
+
+        var htm = "<table border=1 cellspacing=0 width=40%>"
+        htm += "<caption Student Details Records</caption>"
+        htm += "<tr><th>Rollno</th><th>Name</th><th>Gender</th><th>Physics</th><th>Chemistry</th><th>Math</th><th>Hindi</th><th>English</th><th>Total</th><th>Per%</th>"
+        filterresult.map((item, index) => {
+            var t = item.Physics + item.Chemistry + item.Math + item.English + item.Hindi
+            var p = parseInt(t) / 5.0
+            htm += `<tr><td>${item.rollno}</td><td>${item.name}</td><td>${item.gender}</td><td>${item.Physics}</td><td>${item.Chemistry}</td><td>${item.Math}</td><td>${item.Hindi}</td><td>${item.English}</td><td>${t}</td><td>${p}</td>`
+        })
+        htm += `</table>`
+        result.innerHTML = htm
+    }
+</script>
+<html>
+
+<body onload="call()">
+    <center>
+        <input type="radio" onclick="call()" id="male" name="gen" value="Male">Male
+        <input type="radio" onclick="call()" id="female" name="gen" value="Female">Female
+        <input type="radio" onclick="call()" id="all" name="gen" value="All">All
+        <br><br>
+        <div id="result"></div>
+    </center>
+</body>
+
+</html>

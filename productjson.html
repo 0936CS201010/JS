@@ -1,0 +1,63 @@
+<script>
+    function call()
+    {
+        product={
+            100:{"productname":"Frooti","productrate":90,"productoffer":70,"productimage":"frooti.png","productstock":19,"productdate":"04/02/2023"},
+            200:{"productname":"Pepsi","productrate":40,"productoffer":30,"productimage":"pepsi.png","productstock":15,"productdate":"04/03/2023"},
+            300:{"productname":"red bull","productrate":120,"productoffer":100,"productimage":"red bull.png","productstock":10,"productdate":"04/04/2023"},
+            400:{"productname":"bisleri","productrate":25,"productoffer":20,"productimage":"bisleri.png","productstock":12,"productdate":"04/05/2023"},
+            500:{"productname":"coke","productrate":70,"productoffer":60,"productimage":"coke.png","productstock":26,"productdate":"04/04/2023"},
+            600:{"productname":"sprite","productrate":90,"productoffer":80,"productimage":"sprite.png","productstock":19,"productdate":"04/03/2023"},
+            700:{"productname":"7up","productrate":95,"productoffer":75,"productimage":"7up.png","productstock":9,"productdate":"04/02/2023"},
+
+        }
+        var code=Object.keys(product)
+        console.log("code:",code)
+        var productdetails=Object.values(product)
+
+        var filterresult=productdetails.filter((item,index)=>{
+            item.code=code[index]
+            if(sh20to70.checked)
+            {
+                return item.productrate>="20" && item.productrate<="70"
+            }
+            else if(sh71to100.checked)
+            {
+                return item.productrate>="71" && item.productrate<="100"
+            }
+            else if(shupto100.checked)
+            {
+                return item.productrate>="100"
+            }
+            else
+            { return item}
+
+        })
+        
+        htm=`<table border='1' cellspacing='0' cellpadding='0' width='40%' >`
+        htm+=`<caption>Show All Product Details</caption>`
+        htm+=`<tr><th>Code</th><th>Name</th><th>Price</th><th>Offer</th><th>Stock</th><th>manufacture date</th><th>Image</th></tr>`
+        filterresult.map((item,index)=>{
+            htm+=`<tr><td>${item.code}</td><td>${item.productname}</td><td>${item.productrate}</td><td>${item.productoffer}</td><td>${item.productstock}</td><td>${item.productdate}</td><th><a href='/images/${item.productimage}.png' ><img src='/images/${item.productimage}.png' width='25'></a></th></tr>`
+
+        })
+        htm+="</table>"
+
+        result.innerHTML=htm
+    }
+
+    
+</script>
+
+<html>
+<body onload="call()">
+<center>
+<input type="radio" id="sh20to70" name="searching"  onclick="call()">20-70
+<input type="radio" id="sh71to100" name="searching" onclick="call()">70-100
+<input type="radio" id="shupto100" name="searching" onclick="call()">100+
+<br><br><br>
+<div id="result"></div>   
+</center> 
+</body>
+
+</html>

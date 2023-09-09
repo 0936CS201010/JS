@@ -1,0 +1,46 @@
+<script>
+    var hotel = {}
+    function addHotel() {
+
+        hotel[code.value] = { hname: hname.value, star: star.value, price: price.value, htype: htype.value, picture:`${hname}.png` }
+        console.log(hotel)
+        hname.value=''
+        star.value=''
+        price.value=''
+        htype.value=''
+        code.value=''
+    }
+
+    function display() {
+        var code = Object.keys(hotel)
+        var hoteldetails = Object.values(hotel)
+
+        var htm = "<table border=1 cellspacing=0 width=40%>"
+        htm += "<caption><h3>Hotel Information Time Table</h3></caption>"
+        htm += "<tr><th>Code</th><th>Name</th><th>Price</th><th>Star</th><th>Type</th><th>Picture</th></tr>"
+        hoteldetails.map((item, index) => {
+            htm += `<tr><td>${code[index]}</td><td>${item.hname}</td><td>${item.price}</td><td>${item.star}</td><td>${item.htype}</td><td>${item.picture}</td></tr>`
+        })
+        htm += "</table>"
+        result.innerHTML = htm
+    }
+
+    function deleteHotel(code)
+    {
+        delete  hotel['code'] 
+    }
+
+</script>
+<html>
+<input type="text" id="code" placeholder="Enter Code.." /><br><br>
+<input type="text" id="hname" placeholder="Enter Name.." /><br><br>
+<input type="text" id="price" placeholder="Enter Price.." /><br><br>
+<input type="text" id="star" placeholder="Enter Star.." /><br><br>
+<input type="text" id="htype" placeholder="Enter Type.." /><br><br>
+<input type="button" value="Add Hotels" onclick="addHotel()">
+<input type="button" value="Show Hotels" onclick="display()">
+<input type="button" value="Delete Hotel" onclick="deleteHotel(100)">
+<br><br>
+<div id="result"></div>
+
+</html>

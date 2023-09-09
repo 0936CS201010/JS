@@ -1,0 +1,103 @@
+<script>
+    function call()
+    {
+        var hotel={}
+        hotel['100']={name:'Raddison Blue',star:"3",price:6000,type:'Hotel'}
+        hotel['200']={name:'Taj',star:"5",price:1000,type:'Hotel'}
+        hotel['300']={name:'Suruchi',star:"4",price:9500,type:'Hotel'}
+        hotel['400']={name:'Narayanam',star:"5",price:1400,type:'Hotel'}
+        hotel['500']={name:'Shri Ram',star:"5",price:800,type:'Hotel'}
+        hotel['600']={name:'Maharana',star:"3",price:700,type:'Hotel'}
+        hotel['700']={name:'Kalyan',star:"3",price:790,type:'Hotel'}
+        console.log(hotel)
+
+        var code=Object.keys(hotel)
+        console.log("code:",code)
+        var hotelsdetails=Object.values(hotel)
+
+        var filterresult=hotelsdetails.filter((item,index)=>{
+            item.code=code[index]
+            
+            if(hstar3.checked)
+            {return item.star=="3"}
+            else if(hstar4.checked)
+            {return item.star=="4" || item.star=="3"}
+            else if(hstar5.checked)
+            {return item.star=="5" || item.star=="4" || item.star=="5"}
+            else{
+                return item
+            }
+            
+            var i=search.selectedIndex
+            
+            switch(parseInt(i))
+            {
+                case 1:
+                    return item.price>=0 && item.price<=800
+                    break
+                case 2:
+                    return item.price>=800 && item.price<=1000
+                    break
+                case 3:
+                    return item.price>=800
+                    break
+                default :
+                return item
+            }
+            
+        })
+        
+        htm=`<table border='1' cellspacing='0' cellpadding='0' width='40%' >`
+        htm+=`<caption>Show All Hotels Details</caption>`
+        htm+=`<tr><th>Code</th><th>Name</th><th>Star</th><th>Price</th><th>Type</th></tr>`
+        filterresult.map((item,index)=>{
+            htm+=`<tr><td>${item.code}</td><td>${item.name}</td><td>${item.star}</td><td>${item.price}</td><td>${item.type}</td><th><a href='/images/${item.productimage}.png' ><img src='/images/${item.productimage}.png' width='25'></a></th></tr>`
+
+        })
+        htm+="</table>"
+
+        result.innerHTML=htm
+        
+    }
+
+    // function display(result)
+    // {
+    //     htm=`<table border='1' cellspacing='0' cellpadding='0' width='40%' >`
+    //     htm+=`<caption>Show All Hotels Details</caption>`
+    //     htm+=`<tr><th>Code</th><th>Name</th><th>Star</th><th>Price</th><th>Type</th></tr>`
+    //     result.map((item,index)=>{
+    //         htm+=`<tr><td>${item.code}</td><td>${item.name}</td><td>${item.star}</td><td>${item.price}</td><td>${item.type}</td><th><a href='/images/${item.productimage}.png' ><img src='/images/${item.productimage}.png' width='25'></a></th></tr>`
+
+    //     })
+    //     htm+="</table>"
+
+    //     result.innerHTML=htm
+    //     console.log("OKKKKKKK DIUNIDJFkaj;dkjf ;akjsd; faj;lskdfa")
+    
+    // }
+</script>
+
+    
+</script>
+
+<html>
+<body onload="call()">
+<center>
+<input type="checkbox" onclick="call()" value="3" id="hstar3">3 Star
+<input type="checkbox" onclick="call()" value="4" id="hstar4">4 Star
+<input type="checkbox" onclick="call()" value="5" id="hstar5">5 Star
+<br><br>
+<!-- <input type="checkbox" value="hotel" id="htype"> -->
+<select onchange="call()" name="searchproduct" id="search">
+    <option selected>-select price-</option>
+    <option>0-800</option>
+    <option>800-1000</option>
+    <option>1000</option>
+</select>
+
+<br><br><br>
+<div id="result"></div>   
+</center> 
+</body>
+
+</html>

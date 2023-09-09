@@ -1,0 +1,86 @@
+<script src=" https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#btn").click(function(){
+            var rn=$('#rn').val()
+        var sn=$("#sname").val()
+        var fn=$('#fname').val()
+        var t=parseInt($('#p').val())+parseInt($('#c').val())+parseInt($('#m').val())+parseInt($('#h').val())+parseInt($('#e').val())
+        const p=$("#m").val()
+        const c=$("#c").val()
+        const m=$("#m").val()
+        const h=$("#h").val()
+        const e=$("#e").val()
+        var mremark=remarkGrade(p)
+        var premark=remarkGrade(c)
+        var cremark=remarkGrade(m)
+        var hremark=remarkGrade(h)
+        var eremark=remarkGrade(e)
+        
+        if($('#male').prop('checked'))
+        {
+            var gender=$('#male').val()
+        }
+        if($('#female').prop('checked'))
+        {
+            var gender=$('#female').val()
+        }
+
+        var logopic="/images/MPBoardLogo.png"
+
+        var htm=`<table width='60%' border='1'>`
+        htm+=`<caption>Student MarkSheet</caption>`
+        htm+=`<tr><th colspan='2'><img src='${logopic}' width='50'></th><th colspan='4'>Madhya Pradesh Board Of Secondary Education</th></tr>`
+        
+        htm+=`<tr><th colspan='2'>Roll No:</th><td colspan='4'>${rn}</td></tr>`
+        htm+=`<tr><th colspan='2'>Student Name:</th><td colspan='4'>${sn}</td></tr>`
+        htm+=`<tr><th colspan='2'>Father Name:</th><td colspan='4'>${fn}</td></tr>`
+        htm+=`<tr><th colspan='2'>Gender:</th><td colspan='4'>${gender}</td></tr>`
+        htm+=`<tr><th colspan='2'>School Name:</th><td colspan='4'>${$('#school').val()}</td></tr>`
+        
+        htm+=`<tr><th>Code</th><th>Name</th><th>Min</th><th>Max</th><th>Obtain</th><th>Remark</th></tr>`
+        htm+=`<tr><td>101</td><td>Physics</td><td>33</td><td>100</td><td>${$('#p').val()}</td><td>${premark}</td></tr>`
+        htm+=`<tr><td>102</td><td>Chemistry</td><td>33</td><td>100</td><td>${$('#c').val()}</td><td>${cremark}</td></tr>`
+        htm+=`<tr><td>103</td><td>Math</td><td>33</td><td>100</td><td>${$('#m').val()}</td><td>${mremark}</td></tr>`
+        htm+=`<tr><td>104</td><td>Hindi</td><td>33</td><td>100</td><td>${$('#h').val()}</td><td>${hremark}</td></tr>`
+        htm+=`<tr><td>105</td><td>English</td><td>33</td><td>100</td><td>${$('#e').val()}</td><td>${eremark}</td></tr>`
+        htm+=`</table>`
+
+        $("#result").html(htm)
+
+        })
+    })
+    function remarkGrade(marks)
+    {
+        if(marks>=75 && marks<=100)
+        {
+            return remark='D'
+        }
+        else if(marks>=0 && marks<=32)
+        {  
+            return remark='Fail'
+        }
+    }   
+</script>
+<html>
+
+    <center>
+    <fieldset align="center" style="width:35%">
+        <label>Roll No:</label><input type="text" id="rn" placeholder="Roll No"><br><br>
+        <label>Student Name:</label><input type="text" id="sname" placeholder="Student Name"><br><br>
+        <label>Father Name:</label><input type="text" id="fname" placeholder="Father Name"><br><br>
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gen" value="Male" >Male
+        <input type="radio" id="female" name="gen" value="Female" >Female
+        <br><br>
+        <label>School Name:</label><input type="text" id="school" placeholder="School Name"><br><br>
+        <label>Physics Marks:</label><input type="text" id="p" placeholder="Physics"><br><br>
+        <label>Chemistry Marks:</label><input type="text" id="c" placeholder="Chemistry"><br><br>
+        <label>Math Marks:</label><input type="text" id="m" placeholder="Math"><br><br>
+        <label>Hindi Marks:</label><input type="text" id="h" placeholder="Hindi"><br><br>
+        <label>English Marks:</label><input type="text" id="e" placeholder="English"><br><br>
+        <label> Show Result</label><input type="button" id="btn" onclick="call()" value="Show"><br><br>
+    </center>
+    </fieldset>
+    <div id="result"></div>
+</html>

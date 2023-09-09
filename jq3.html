@@ -1,0 +1,17 @@
+<script src=" https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#txt1').val(2000)
+        $('#btn').click(function(){
+            var c=parseInt($('#txt1').val())+parseInt($('#txt2').val())
+            $('#result').html(`Value is ${c}`)
+            
+        })
+    })
+</script>
+<html>
+<input type="text" id="txt1" ><br><br>
+<input type="text" id="txt2" ><br><br>
+<input id="btn" type="button" value="Click Here">
+<div id="result"></div>
+</html>

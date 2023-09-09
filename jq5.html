@@ -1,0 +1,22 @@
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function(){
+     
+    $('.btn').click(function(){
+        var c=`<h1> ${$(this).attr('fruit')} ${$(this).attr('origin')}`    
+        $('#result').html(c)
+        // $('#fimg').prop('src',$(this).attr('fruit')+".jpg")
+        fimg.src=$(this).attr('fruit')+".jpg"
+
+    })
+
+    })
+</script>
+
+<html>
+<input class="btn" fruit="Mango" origin="UP" type="button" value="Click Here"><br><br>
+<input class="btn" fruit="Orange" origin="MH" type="button" value="Click Here"><br><br>
+<input class="btn" fruit="Apple" origin="JK" type="button" value="Click Here"><br><br>
+<div id="result"></div><br><br>
+<img id="fimg">
+</html>

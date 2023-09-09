@@ -1,0 +1,13 @@
+<script src=" https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function(){
+        
+        $('#ques').click(function(){
+            // alert($('#ques').is(':checked'))
+            alert($('#ques').prop('checked'))
+        })
+    })
+</script>
+<html>
+<input id="ques" type="checkbox" value="Agree" > Agree<br><br>
+</html>

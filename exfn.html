@@ -1,0 +1,41 @@
+<script>
+    var i=1
+    var interval
+    function animate()
+    {
+        var pic=i+".png"
+        cat.src=pic 
+        mouse.src=pic 
+        i++
+        if(i==9)
+        {i=1}
+
+    }
+
+    function start()
+    {
+        mouse.width=45
+        interval=setInterval(animate,100)
+    }
+
+    function stop()
+    {
+        clearInterval(interval)
+    }
+
+
+</script>
+
+<html>
+<input type="button" value="Start" onclick="start()">
+<input type="button" value="Stop" onclick="stop()">
+<br><br>
+<center>
+    <img id="cat">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img id="mouse">
+</center>
+
+</html>

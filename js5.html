@@ -1,0 +1,28 @@
+<script>
+    function call(ch)
+    {   var x
+        if(ch==1)
+        x=parseInt(txt1.value)+parseInt(txt2.value)
+        else if(ch==2)
+        x=txt1.value-txt2.value
+        else if(ch==3)
+        x=txt1.value*txt2.value
+        else if(ch==4)
+        x=txt1.value/txt2.value
+
+        alert(x)
+    }   
+
+    
+</script>
+<html>
+    <input type="text" placeholder="Enter Rate" id="txt1" ><br><br>
+    <input type="text" placeholder="Enter Rate" id="txt2"><br><br>
+
+    <input type="button" value="Addition" onclick="call(1)">
+    <input type="button" value="Subtraction" onclick="call(2)">
+    <input type="button" value="Multiplication" onclick="call(3)">
+    <input type="button" value="Division" onclick="call(4)">
+
+    
+</html>

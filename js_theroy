@@ -1,0 +1,280 @@
+required
+
+pattern="regular expression"
+title="message"
+regex (regular expression)
+------
+
+[a-z A-Z]   will allow only one character
+[a-z A-Z]+   multiple characters
+[a-z A-Z] {30}  allow fixed 30 characters
+[a-z A-Z] {3,30}  allow min 3 and max 30 characters
+[a-z A-Z] {3,}  allow min 3 and max unlimited characters
+[a-z A-Z] {,40} 
+[0-9] 
+[0-9]+
+[0-9] {10}
+
+
+
+JAVA SCRIPT
+------------
+Live Script
+Vanilla Script
+- Client Side
+- Server Side
+
+Variables
+---------
+ex
+var a=10
+var a="Gwalior"
+
+but
+ex
+let a=10
+a=a+30
+let a="Gwalior"  error
+
+var c=90.8
+
+const pi=3.14
+pi=2 error
+===============
+
+operators
+Arithmetic
++,-,*,%
+
+Logical
+&& || !
+
+Relational
+>,<,>=,==,!=,<=,==,===
+
+var a=20
+var b="20"
+k=(a==b) true
+k=(a===b) false will chk type and value both
+
+Assignment Operator
++=,-=,*=,/=,%=,=
+var k=10
+k+=100  110
+k+=2    112
+
+Unary Operator
+++, --
+
+Ternary Operator
+?
+<condition>?<true>:<false>
+var a=100
+var b=20
+k=a>b?"<h1>Hello</h1>":"<h1>Hi</hi>"
+
+
+18/02/2023
+==========
+
+if conditions
+-------------
+
+if(exp)
+{  ==
+   ==}
+else
+{ ===
+  ===}
+
+multiple if
+------------
+
+if(exp)
+{
+    ===
+    ===
+  }
+else if(exp)
+{  ==
+   ==}
+else if(exp)
+{ ==
+  ==
+   }
+
+
+while(exp)
+{
+    ===
+    ===
+    [break]
+    [continue]
+}
+
+do
+{
+    ===
+    ===
+    [break]
+    [continue]
+}while(exp);
+
+
+for(<initialization>;<condition>;<statement>)
+{
+    ====
+    [break]
+    [continue]
+}
+
+switch(var)
+{
+    case <const>:
+     =====
+     ===
+     [break]
+    case <const>
+     ====
+     ===
+     [break]
+    default:
+}
+
+
+function <fname>(parameter)
+{
+    =====
+    ====
+}
+
+events
+onclick()
+onkeyup()
+onkeydown()
+parseInt(str)   string into integer
+parseFloat(str) string into float
+
+Ques
+====
+to find out simple interest
+add,sub,mul,div
+
+21/022023
+=========
+
+Employee Salary(12lakh)
+
+calculate annual salary(button)
+  |
+
+Annual Salary
+salary      120000
+tax         ----   (30%)
+netannual   ----
+salary
+
+
+var tax=sal*30/100
+var ns=sal-tax
+
+
+
+25/02/2023
+===========
+
+task
+
+      student information
+  rollno        textbox
+  name          textbox
+  gender        dropdown
+  fname         textbox
+  schoolname    textbox
+  hindi         textbox
+  endglish      textbox
+  physics       textbox
+  chemistry     textbox
+  maths         textbox
+
+  div -> submit button   onclick
+
+first table
+
+circle cbsc bord logo               Centeral board of secondary new delhi
+ 
+other name for student details 
+(simle table that contains only one row)
+school name master harry singh s/o peter singh 
+
+second table
+
+code  name       min   max   obtain           remark
+100    english   35    100     keyboard marks   *(red color star) 
+200    hindi     35    100     keyboard marks   d
+(if 75+ marks)
+
+
+
+
+per      69.5    total         405   
+
+
+
+hints
+
+if(gender.value=="Female")
+{
+  pre="Miss"
+  bet="d/o"
+}
+else
+{
+  pre="Master"
+  bet="s/o"
+}
+
+student name : ${pre} ${sname} ${bet} ${fname}
+
+hrem=remark(34)
+
+function remark(var marks)
+{
+  if(marks<35)
+  {
+    remk="*"
+  }
+  else if(marks>75)
+  {
+    remk="d"
+  }
+}
+
+28/02/2023
+===========
+
+var hr=''
+if(hindi.value>=75 && hindi.value<=100)
+{ hr="D"}
+else if(hindi.value>=0 && hindi.value<=35)
+{ hr="*"}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

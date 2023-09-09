@@ -1,0 +1,25 @@
+<script>
+    function call()
+    {  
+        var amt=qty.value*rate.value
+        // result.innerHTML=amt
+        // result.innerHTML="Amount is:"+amt
+        // result.innerHTML=rate.value+"X"+qty.value+"="+amt
+        //result.innerHTML="Rate:"+rate.value+"<br>Qty:"+qty.value+"<br>Amount:"+amt
+        var output="<table width='30%' border='1' cellpadding='5'>"
+        output+="<caption><h3>Bill/Invoice</h3></caption>"
+        output+="<tr><th>Sn</th><th>Rate</th><th>Qty</th><th>Amount</th></tr>"
+        output+="<tr><td>1</td><td>"+rate.value+"</td><td>"+qty.value+"</td><td>"+amt+"</td></tr>"
+        output+="</table"
+        result.innerHTML=output    
+    }   
+
+    
+</script>
+<html>
+    <input type="text" placeholder="Enter Rate" id="rate" ><br><br>
+    <input type="text" placeholder="Enter Rate" id="qty"><br><br>
+
+    <input type="button" value="Amount" onclick="call(100)"><br><br>
+    <div id="result">See Here</div>
+</html>

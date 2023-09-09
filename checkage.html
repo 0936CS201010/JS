@@ -1,0 +1,14 @@
+<script>
+    function call()
+    {   pic.width=10
+        var a=parseInt(age.value)
+        if(a>=18 && a<=30)
+        { pic.src="/images/tick.png" }
+        else 
+        { pic.src="/images/cross.png" }
+    }
+</script>
+<html>
+    <input type="text" id="age" placeholder="Enter Age" onkeyup="call()">
+    <img id="pic" />
+</html>

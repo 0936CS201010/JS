@@ -1,0 +1,410 @@
+String Functions
+----------------
+
+charAt(index)
+--------------
+return character at specified index
+x="Himalaya"
+c=x.charAt(2)
+
+length()
+--------
+find out the length of string 
+
+var x="Himalaya"
+        c=x.length
+        alert(c)
+
+Example
+<script>
+    function call()
+    {
+        var x="Himalaya"
+        c=0
+        for(i=0;i<x.length;i++)
+        { if(x.charAt(i)=='a')
+          c++
+        }
+        alert(c)
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" />
+</html>
+
+charCodeAt(index)
+-----------------
+return ascii value of character
+
+Example
+-------
+<script>
+    function call()
+    {
+        var x="Himalaya"
+        c=x.charCodeAt(3)
+        alert(c)
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" />
+</html>
+
+concat(s1,s2.....)
+------------------
+merge two or more string 
+
+Example
+-------
+<script>
+    function call()
+    {
+        var x="Java Script"
+        var y="Client Side Scripting"
+        var z="now a days we can also used it in server side scripting"
+        c=x.concat(" ",y," ",z)
+        alert(c)
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" />
+</html>
+
+endsWith(str)/startsWith(str)
+==============================
+return true if string ends with specified substr
+otherwise false 
+
+Example
+-------
+<script>
+    function call()
+    {
+        var x="Java Script"
+        c=x.endsWith('Script')
+        alert(c)
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" />
+</html>
+
+Example
+-------
+<script>
+    function call()
+    {
+        var city=['Gwalior','Indore','Jaipur',"Bhopal","Udaipur","Rampur"]
+        for(i=0;i<city.length;i++)
+        {
+            if(city[i].endsWith('pur'))
+            { alert(city[i])}
+        }
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" />
+</html>
+
+
+String.fromCharCodeAt(ascii1,ascii2,ascii3....)
+-----------------------------------------------
+convert ascii into character
+
+Example
+--------
+<script>
+    function call()
+    {
+       k=String.fromCharCode(65,89,78,90,70)
+       alert(k)
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" />
+</html>
+
+
+includes(substr,[pos])
+======================
+return true if specified substr includes in string
+
+Example
+-------
+<script>
+    function call()
+    {
+        var city=['Gwalior','Indore','Jaipur',"Bhopal","Udaipur","Rampur"]
+        for(i=0;i<city.length;i++)
+        {
+            if(city[i].includes('or'))
+            { alert(city[i])}
+        }
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" />
+</html>
+
+
+x="Ram Kumar Sharma"
+t=x.includes("ma",8)
+alert(t)  true
+
+
+indexOf(char/str,[pos])/search(char/str)
+=======================================
+return index of specified character/str
+if specified char/str does not exist it will return -1
+
+Example
+-------
+<script>
+    function call()
+    {
+        var x="this is test program"
+        i=x.indexOf('is')
+        alert(i)
+        i=x.indexOf('is',i+1)
+        alert(i)
+        i=x.indexOf('is',i+1)
+        alert(i)
+        
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" />
+</html>
+
+Example of search
+-----------------
+<script>
+    function call()
+    {
+        var x="the man the machine the program"
+        k=x.search('man')
+        alert(k)
+        
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" />
+</html>
+
+
+lastIndexOf(char/str,[n])
+=========================
+search string/char in backward direction
+
+Example
+-------
+<script>
+    function call()
+    {
+        var x="this is test program"
+        i=x.lastIndexOf('is')
+        alert(i)
+        i=x.lastIndexOf('is',i-1)
+        alert(i)
+        
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" />
+</html>
+
+Normalize
+=========
+we can normalize a unicode string 
+
+Example
+<script>
+    function call()
+    {
+        var x="\u0938\u0902\u0926\u0940\u092A".normalize()
+        alert(x)
+        
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" />
+</html>
+
+
+padEnd(width,char) padStart(width,char)
+=======================================
+
+Example
+<script>
+    function call()
+    {
+        var x="1000"
+        k=x.padEnd(10,"*")
+        alert(k)
+        j=x.padStart(10,"*")
+        alert(j)        
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" />
+</html>
+
+
+substring(startindex,[endindex])/slice(startindex,endindex-1)
+=============================================================
+read a string from specified startindex to endindex-1
+
+Example
+<script>
+    function call()
+    {
+        var x="this is js program"
+        k=x.substring(10)
+        alert(k)
+        
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" />
+</html>
+
+Example
+<script>
+    function call()
+    {
+        var x="this is js program"
+        k=x.substring(4,10)
+        alert(k)
+        
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" />
+</html>
+
+Example
+<script>
+    function call()
+    {
+        var x="9301123085"
+        k=x.substring(6).padStart(10,"X")
+        alert(k)        
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" />
+</html>
+
+repeat(n)
+=========
+to repeat a string n times
+
+"Hello".repeat(3)
+
+
+replace(old_str,new_str)/replaceAll(old,new)
+============================================
+Example
+<script>
+    function call()
+    {
+        var x="the man the machine the program"
+        k=x.replace('the','that')
+        alert(k)
+        
+        k=x.replaceAll('the','that')
+        alert(k)
+        
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" />
+</html>
+
+
+split(str)
+----------
+split a string into array of substring
+str is split/break point
+
+Example
+<script>
+    function call()
+    {
+        var x="67#500#16032023#11:20"
+        k=x.split('#')
+        alert("Weight:"+k[0]+"Kg "+k[1]+" Gram")
+        
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" />
+</html>
+
+toLowerCase
+===========
+convert a string to lowercase letters
+
+"HeLlo wOrLd".toLowerCase();   // return "hello world"
+
+toUpperCase
+===========
+convert a string to uppercase letters
+
+"HeLlo wOrLd".toUpperCase();   // return "HELLO WORLD"
+
+trim()/trimEnd()/trimStart()
+=============================
+remove spaces from both ends 
+remove spaces from ends 
+remove spaces from starts 
+
+Example
+<script>
+    function call()
+    {
+        var x="         12345         "
+        alert(x)
+
+        k=x.trim()
+        alert(k)
+        
+        k=x.trimEnd()
+        alert(k)
+        
+        k=x.trimStart()
+        alert(k)
+
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" />
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

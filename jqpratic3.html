@@ -1,0 +1,97 @@
+<script src=" https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+    // DropDown Wala Question
+    $(document).ready(function(){
+        $("#pzt").change(function(){
+            var i=$('#pzt option:selected').index()
+            switch(i)
+            {
+                case 1:
+                    var vg=[{name:'-Select Pizza-',price:0},{name:'MARGHERITA',price:15000},{name:'DOUBLE CHEESE MARGHERITA',price:2100},{name:'PEPPY PANEER',price:14000},{name:'CHEESE N CORN',price:1200}]
+                    fillDD(vg)
+                    break;
+                case 2:
+                    var nvg=[{name:'-Select Pizza-',price:0},{name:'CHICKEN DOMINATOR',price:2300},{name:'PEPPER BARBECUE & ONION',price:1700},{name:'CHICKEN DOMINATOR',price:1399},{name:'NON VEG SUPREME',price:1199}]
+                    fillDD(nvg)
+                    break;
+            }
+        })
+
+        function fillDD(pzarr)
+        {
+            $('#pz').append($('<option>').text('Select Pizza'))
+            $('#pz').empty()
+            pzarr.forEach((item)=>{
+                $('#pz').append($('<option>').text(item.name).val(item.price))
+            })
+        }
+
+        $('#btn').click(function(){
+            var pcompany="images/Pizza Hut.jpg"
+            var logo="images/"+pzt.value+".png"
+            var pzname=$('#pz option:selected').text()
+            var pzpic="images/"+pzname+".png"
+            var price=$("#pz").val()
+            var Q=parseInt($("#qty").val())
+            var dis=DiscountOffer(Q)
+            var output=`<table width='30%' cellpadding='5' cellspacing='0' border='1'>`
+            output+=`<tr><th><img src='${pcompany}' width='150'></th></tr>`
+            output+=`<tr><th><img src='${logo}' width='15'>  ${pzname}</th></tr>`
+            output+=`<tr><th><img src='${pzpic}' width='250'></th></tr></table>`
+            
+            output+=dis
+            $('#result').html(output)
+
+
+    
+        })
+        function DiscountOffer(qtyoffer)
+        {   offer=''
+            if(qtyoffer==1)
+            {
+                d='No Discount'
+                offer+=`<table width='30%' cellpadding='5' cellspacing='0' border='1'>`
+                offer+=`<tr><th>Discount: ${d}</th></tr></table>`
+            }
+            else if(qtyoffer>=2 && qtyoffer<=5)
+            {
+                d='1 Pepsi'
+                offer+=`<table width='30%' cellpadding='5' cellspacing='0' border='1'>`
+                offer+=`<tr><th>Discount: ${d}</th></tr>`
+                offer+=`<tr><th><img src='/images/pepsi.png' width='100'></th></tr></table>`
+            }
+            else if(qtyoffer>=6 && qtyoffer<=10)
+            {
+                d='Frech Fries 1 Pepsi & one Choko Lava Cake'
+                offer+=`<table width='30%' cellpadding='5' cellspacing='0' border='1'>`
+                offer+=`<tr><th>Discount: ${d}</th></tr>`
+                offer+=`<tr><th><img src='/images/pepsi.png' width='100'></th></tr>`
+                offer+=`<tr><th><img src='/images/French Fries.png' width='100'></th></tr>`
+                offer+=`<tr><th><img src='/images/chocolate-lava-crunch-cake.png' width='100'></th></tr></table>`
+            }
+            return offer
+        }
+ 
+
+})
+
+</script>
+<html>
+    <b>Pizza Type:</b><br>
+    <select id="pzt" onchange="showPizzas()">
+        <option>-Select Type-</option>
+        <option>VEG</option>
+        <option>NON VEG</option>
+    </select><br><br>
+
+    <b>Pizza's</b><br>
+    <select id="pz">
+        <opiton>-Select Pizza-</opiton>
+    </select><br><br>
+    <input type="text" id="qty" ><br><br>
+    <b>Submit:</b>
+    <input type="button" id="btn" value="Submit"><br><br>
+    <div id="result"></div>
+
+</html>

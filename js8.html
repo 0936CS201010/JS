@@ -1,0 +1,25 @@
+<!-- /* 9301123085 */ -->
+<script>
+    function call()
+    {
+        var as=salary.value*12
+        var tax=as*30/100
+        var nas=as-tax
+        var htm="<table width='25%' cellpadding='5' border='1'>"
+        htm+="<caption>Tax Calculation</caption>"
+        htm+="<tr><td><b>Salary:</b></td><td>"+salary.value+"</td></tr>"
+        htm+="<tr><td><b>Annual Salary:</b></td><td>"+as+"</td></tr>"
+        htm+="<tr><td><b>Tax:</b></td><td>"+tax+"</td></tr>"
+        htm+="<tr><td><b>Net Salary:</b></td><td>"+nas+"</td></tr>"
+        htm+="</table>"
+        result.innerHTML=htm
+
+
+    }
+</script>
+
+<html>
+    <input type="text" id="salary" placeholder="Enter Salary:"><br><br>
+    <input type="button" value="Net Salary" onclick="call()"><br><br>
+    <div id="result">See Here</div>
+</html>

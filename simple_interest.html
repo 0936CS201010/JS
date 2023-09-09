@@ -1,0 +1,15 @@
+<script>
+    function si()
+    {
+        interest=(p.value+r.value+t.value)/100
+        alert(interest)
+        result.innerHTML=interest
+    }
+</script>
+<html>
+    <p><input type="text" id="p" placeholder="Principal Amount"></p>
+    <p><input type="text" id="r" placeholder="Rate"></p>
+    <p><input type="text" id="t" placeholder="Time"></p>
+    <p><input type="button" value="S.I" onclick="si()"></p>
+    <p><div class="id" id="result"></div></p>
+</html>

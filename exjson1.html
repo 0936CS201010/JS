@@ -1,0 +1,42 @@
+<script>
+    function call()
+    {
+        var bus={
+            100:{type:'Non Ac',from:'Gwalior',to:'Morena',km:40,fare:100,picture:'/bus/1.png'},
+            200:{type:'Ac',from:'Indore',to:'Gwalior',km:570,fare:400,picture:'/bus/2.png'},
+            300:{type:'Ac',from:'Indore',to:'Mumbai',km:500,fare:1200,picture:'/bus/3.png'},
+            400:{type:'Non Ac',from:'Jhansi',to:'Agra',km:250,fare:200,picture:'/bus/4.png'},
+            500:{type:'Ac',from:'Agra',to:'Manali',km:1200,fare:3000,picture:'/bus/5.png'},
+        }
+        var code=Object.keys(bus)
+        console.log("Code",code)
+        var busdetails=Object.values(bus)
+        console.log(busdetails)
+
+        var htm="<table border=1 cellspacing=0 width=40%>"
+            htm+="<caption><h3>Bus Information Time Table</h3></caption>"
+            htm+="<tr><th>Code</th><th>Type</th><th>From</th><th>To</th><th>Distance</th><th>Fare</th><th>Picture</th></tr>"
+            busdetails.map((item,index)=>{
+                htm+=`<tr><td>${code[index]}</td><td>${item.type}</td><td>${item.from}</td><td>${item.to}</td><td>${item.fare}</td><td>${item.km}</td><th><a href='${item.picture}'><img src='${item.picture}' width=40></a></th></tr>`
+            })
+            htm+="</table>"
+            result.innerHTML=htm 
+    }
+</script>
+<html>
+    <body onload="call()">
+    <center>
+    <div id="result"></div>
+    </center>    
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+

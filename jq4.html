@@ -1,0 +1,51 @@
+<script src=" https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    $(document).ready(function () {
+
+        $('#states').change(function () {
+            // alert($('#states').val())
+            // alert($('#states option:selected').index())
+            // alert($('#states option:selected').text())
+            // alert($('#states option:selected').val())
+            var i = $('#states option:selected').index()
+            switch (i) {
+                case 1:
+                    var mpcity = [{ city: 'Gwalior', id: 100 }, { city: 'Indore', id: 200 }, { city: 'Bhopal', id: 300 }]
+                    fillCity(mpcity)
+                    break
+                case 2:
+                    var upcity = [{ city: 'Agra', id: 1000 }, { city: 'Noida', id: 2000 }, { city: 'Gaziabad', id: 3000 }]
+                    fillCity(upcity)
+                    break
+
+            }
+        })
+
+        function fillCity(indiaCity) {
+            $('#city').empty()
+            $('#city').append($('<option>').text('Choose City'))
+            indiaCity.forEach((item) => {
+                $('#city').append($('<option>').text(item.city).val(item.id))
+
+            })
+        }
+
+        $('#city').change(function () {
+            var c = `<h1> ${$('#city option:selected').text()} ${$('#city option:selected').val()} </h1>`
+            $('#result').html(c)
+        })
+    })
+</script>
+<html>
+<select id="states">
+    <option>Choose State</option>
+    <option>Madhya Pradesh</option>
+    <option>Uttar Pradesh</option>
+    <option>Rajasthan</option>
+</select><br><br>
+<select id="city">
+    <option>Choose City</option>
+</select><br><br>
+<div id="result"></div>
+
+</html>

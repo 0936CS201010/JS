@@ -1,0 +1,18 @@
+JQUERY API
+===========
+
+$(document)
+represent HTML Page
+event ready
+
+$(document).ready(function)({
+
+})
+
+id
+----
+$('#btn')
+
+class
+-----
+$('.btn')

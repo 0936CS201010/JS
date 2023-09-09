@@ -1,0 +1,101 @@
+<script>
+    function call()
+    {
+        var hotel={
+            100:{name:'Honeydew Suites and villas by Goaround',type:'villa',star:'4',price:1800,pic:'/photos/h1.png'},
+            200:{name:'Hotel Jyoti Plaza',type:'hotel',star:'3',price:800,pic:'/photos/h2.png'},
+            300:{name:'Fairfiel',type:'resort',star:'3',price:3300,pic:'/photos/h3.png'},
+            400:{name:'goSTOPS',type:'hotel',star:'5',price:7200,pic:'/photos/h4.png'},
+            500:{name:'Majestic Eco Comforts',type:'resort',star:'4',price:9300,pic:'/photos/h5.png'},
+            600:{name:'Hilton',type:'resort',star:'5',price:1100,pic:'/photos/h6.png'},
+            700:{name:'ibis Styles',type:'hotel',star:'4',price:8400,pic:'/photos/h7.png'},
+            800:{name:'Braganza House',type:'villa',star:'3',price:5000,pic:'/photos/h8.png'},
+            900:{name:'De mandarin Beach',type:'villa',star:'5',price:11900,pic:'/photos/h9.png'},
+
+        }
+
+        var hoteldetails=Object.values(hotel)
+        console.log("hoteldetails:",hoteldetails)
+
+        //----------------------------------------------
+        var filterhotel=hoteldetails.map((item,index)=>{
+
+            if(v.checked&&r.checked&&h.checked)   return true;
+            else if(h.checked&&v.checked)   return item.type!="resort";
+            else if(v.checked&&r.checked)   return item.type!="hotel";
+            else if(h.checked&&r.checked)   return item.type!="villa";
+            else if(v.checked)  return item.type=="villa";
+            else if(r.checked)  return item.type=="resort";
+            else if(h.checked)  return item.type=="hotel";
+
+
+            if(str1.checked&&str2.checked&&str3.checked)    return true;
+            else if(str1.checked&&str2.checked) return item.star!="5";
+            else if(str1.checked&&str3.checked) return item.star!="4";
+            else if(str2.checked&&str3.checked) return item.star!="3";
+            else if(str1.checked) return item.star=="3";
+            else if(str2.checked) return item.star=="4";
+            else if(str3.checked) return item.star=="5";
+
+
+            return item.name.toLowerCase().startsWith(src.value.toLowerCase())
+
+        })
+
+        //----------------------------------------
+        var output=`<table border='1' cellpadding='40' width='50%'>`
+        output+=`<tr><th>Images</th><th>Hotel Name</th><th>Type</th><th>Star</th><th>Price</th></tr>`
+        filterhotel.map((item,index)=>{
+            output+=`<tr><td><img src='${item.pic}' width='150'></td><td>${item.name}</td><td>${item.type}</td><td>${item.star}</td><td>&#8377;${item.price}</td></tr>`
+        })
+        output+=`</table>`
+        result.innerHTML=output
+    }
+</script>
+<html>
+    <header>
+        <center>
+            <img src="/photos/makemytrip.jpg" width="20%">
+        </center>
+    </header>
+    <body onload="call()">
+    <center>
+        <div>
+            <input type="text" id="src" size="90%" placeholder="Search by Hotel Name">
+            <input type="button" id="src1" value="Search" onclick="call()">
+
+        </div>
+        <br>
+        <fieldset align="center" style="width:35%">
+        <legend>
+            <h1>Select Filters</h1>
+        </legend>+
+        <hr>
+        <lable><b>Star Category:</b></lable>
+        <input type="checkbox" id="str1" onclick="call()"><label>3 Star</label>
+        <input type="checkbox" id="str2" onclick="call()"><label>4 Star</label>
+        <input type="checkbox" id="str3" onclick="call()"><label>5 Star</label>
+        <br><br><hr>
+        <lable><b>Property Type:</b></lable>
+        <input type="checkbox" id="v" onclick="call()"><lable>Villa</lable>
+        <input type="checkbox" id="r" onclick="call()"><lable>Resort</lable>
+        <input type="checkbox" id="h" onclick="call()"><lable>Hotel</lable>
+        <br><br><hr>
+        <lable><b>Price per night:</b></lable>
+        <select id="price" onchange="call()">
+            <option value="0">-Select-</option>
+            <option value="2000"> &#8377; 0-2000</option>
+            <option value="6000"> &#8377; 0-6000</option>
+            <option value="9000"> &#8377; 0-9000</option>
+            <option value="12000"> &#8377; 0-12000</option>
+        </select>
+        </fieldset><br><br>
+        <fieldset align="center" style="width:35%">
+            <legend>
+                <h1>----Hotels-----</h1>
+            </legend>
+            <div id="result"></div>
+        </fieldset>
+    </center>
+    </body>
+</html>

@@ -1,0 +1,102 @@
+<script>
+    function call()
+    {
+        // return (item.star==three || item.star==four || item.star==five) && (item.type==villa || item.type==hotel || item.type==resort) 
+
+        var hotel=
+    {  100: {name:'Honeydew Suites and villas by Goaround', type:'villa', star:'4', price: 1800,pic:'/photos/h1.jpg'},
+    200: {name:'Hotel Jyoti Plaza', type:'hotel', star:'3', price: 800,pic:'/photos/h2.jpg'},
+    300: {name:'Fairfield', type:'resort', star:'3', price: 3300,pic:'/photos/h3.jpg'},
+    400: {name:'goSTOPS', type:'hotel', star:'5', price: 7200,pic:'/photos/h4.jpg'},
+    500: {name:'Majestic Eco Comforts', type:'resort', star:'4', price: 9300,pic:'/photos/h5.jpg'},
+    600: {name:'Hilton', type:'resort', star:'5', price: 11000,pic:'/photos/h6.jpg'},
+    700: {name:'ibis Styles', type:'hotel', star:'4', price: 8400,pic:'/photos/h7.jpg'},
+    800: {name:'Braganza House', type:'villa', star:'3', price: 5000,pic:'/photos/h8.jpg'},
+    900: {name:'De mandarin Beach', type:'villa', star:'5', price: 11900,pic:'/photos/h9.jpg'}
+
+    }
+    var hoteldetails=Object.values(hotel)
+   var three=''
+   var four=''
+   var five=''
+    if(str3.checked)
+     three=str3.value
+    if (str4.checked)   
+     four=str4.value
+    if (str5.checked)   
+     five=str5.value
+    
+    var villa=''
+    var resort=''
+    var hotel=''
+    if(v.checked)
+        villa=v.value
+    if(r.checked)
+        resort=r.value
+    if(h.checked)
+        hotel=h.value
+    
+
+    filterhotel=hoteldetails.filter((item)=>{
+     return (item.star==three || item.star==four || item.star==five) &&  (item.type==villa || item.type==resort || item.type==hotel)
+    })
+    
+
+    //-------------------------------
+    var output=`<table border='1' cellpadding='40' width='50%'>`
+        output+=`<tr><th>Images</th><th>Hotel Name</th><th>Type</th><th>Star</th><th>Price</th></tr>`
+        filterhotel.map((item,index)=>{
+            output+=`<tr><td><img src='${item.pic}' width='150'></td><td>${item.name}</td><td>${item.type}</td><td>${item.star}</td><td>&#8377;${item.price}</td></tr>`
+        })
+        output+=`</table>`
+        result.innerHTML=output
+    }
+</script>
+
+<html>
+    <header>
+        <center>
+            <img src="/photos/makemytrip.jpg" width="20%">
+        </center>
+    </header>
+    <body onload="call()">
+        <center>
+            <div>
+                <input type="text" id="src" size="90%" placeholder="Search by Hotel Name"/>
+                <input type="button" id="src1" value="Search" onlick="call()">
+            </div>
+            <br>
+            <fieldset align="center" style="width: 35%;">
+                <legend>
+                    <h1>Select Filters</h1>
+                </legend>+
+                <hr>
+                <label><b>Star Category:</b></label>
+                <input value="3" type="checkbox" id="str3" onclick="call()"><label>3 Star</label>
+                <input value="4" type="checkbox" id="str4" onclick="call()"><label>4 Star</label>
+                <input value="5" type="checkbox" id="str5" onclick="call()"><label>5 Star</label>
+                <hr>
+                <label><b>Property Type:</b></label>
+                <input value="villa" type="checkbox" id="v" onclick="call()"><label>Villa</label>
+                <input value="resort" type="checkbox" id="r" onclick="call()"><label>Resort</label>
+                <input value="hotel" type="checkbox" id="h" onclick="call()"><label>Hotel</label>
+                <hr>
+                <label><b>Per Night Price:</b> </label>
+                <select id="price" onchange="call()">
+                    <option>-Select Price-</option>
+                    <option value="2000">0-2000</option>
+                    <option value="4000">0-4000</option>
+                    <option value="6000">0-6000</option>
+                    <option value="9000">0-9000</option>
+                </select>
+            </fieldset><br><br>
+            <fieldset align="center" style="width:35%;">
+                <legend>
+                    <h1>----Hotels-----</h1>
+                </legend>
+                <div id="result"></div>
+            </fieldset>
+        </center>
+        
+    </body>
+</html>

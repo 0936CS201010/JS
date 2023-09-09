@@ -1,0 +1,721 @@
+map()
+------
+read each array elements one by one and process it
+syntax
+
+<return type> = <array>.map((item)=>{
+
+})
+
+or
+
+<return type> = <array>.map(function(item){
+
+})
+
+var city=['-Select-','Gwalior','Indore','Bhopal','Rewa','Jabalpur']
+
+    city.map((item)=>{
+        alert(item)
+    })
+Example
+
+<script>
+    function call()
+    {
+        var city=['-Select-','Gwalior','Indore','Bhopal','Rewa','Jabalpur']
+
+        city.map((item,index)=>{
+            alert(`item:${item}, index:${index}`)
+        })
+
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" /><br><br>
+</html>
+
+Example2
+<script>
+    function call()
+    {
+        var city=['-Select-','Gwalior','Indore','Bhopal','Rewa','Jabalpur']
+
+        city.map((item)=>{
+            var opt=document.createElement('option')
+            opt.text=item
+            cities.add(opt)
+        })
+
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" /><br><br>
+    <select id="cities">
+
+    </select>
+</html>
+
+// Example to process an array and create new array with map 
+<script>
+    function call()
+    {
+        var price=[['Frooti',300],['Limca',100],['Pepsi',80]]
+
+        var np=price.map((item)=>{
+           var newprice=item[1]-20
+           return [item[0],newprice]
+        })
+        console.log(np)
+
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" /><br><br>
+</html>
+
+Example3
+<script>
+    function call() {
+        var price = [['Frooti', 300], ['Limca', 100], ['Pepsi', 80]]
+
+        var np = price.map((item) => {
+            if (item[0] == 'Frooti') {
+                var newprice = item[1] - 20
+                return [item[0], newprice]
+            }
+            else {
+                return item
+            }
+        })
+        console.log(np)
+
+    }
+</script>
+<html>
+<input type="button" value="click here" onclick="call()" /><br><br>
+
+</html>
+
+
+filter
+------
+this function create new array from source array according to specified
+filter (condition)
+
+syntax
+
+<new array> = <source>.filter((item)=>{
+
+    return(condition)
+    //return only those data which statified the specified condition
+})
+
+Example1
+<script>
+    function call()
+    {
+        var price=[67,900,400,23,56,66,90]
+
+        var np=price.filter((item)=>{
+           
+            return (item>300)
+        })
+        console.log(np)
+    }
+</script>
+<html>
+    <input type="button" value="click here" onclick="call()" /><br><br>
+
+</html>
+
+Example2
+<script>
+    function call() {
+        var price = [['Frooti', 300], ['Limca', 100], ['Pepsi', 280]]
+
+        var np = price.filter((item) => {
+           
+            return item[1]>200
+        })
+        console.log(np)
+
+    }
+</script>
+<html>
+<input type="button" value="click here" onclick="call()" /><br><br>
+
+</html>
+
+Example3
+<script>
+    function call() {
+        var price = [['Frooti', 300], ['Limca', 100], ['Pepsi', 280],['Red Bull',20],['Mountain Dew',70]]
+        
+        var np = price.filter((item) => {
+           
+            return item[0].includes(txt.value) || item[1]==txt.value
+        })
+        
+        htm=''
+        np.map((item)=>{
+            htm+=`<h1>${item[0]},${item[1]}<h1>`
+        })
+        result.innerHTML=htm
+    }
+</script>
+<html>
+    <input onkeyup="call()" type="text" placeholder="Search here...." id="txt"> 
+    <div id="result"></div>
+
+</html>
+Example4
+<script>
+    function call() {
+        var price = [['Frooti', 300], ['Limca', 100], ['Pepsi', 280],['Red Bull',20],['Mountain Dew',70]]
+        
+        var np = price.filter((item) => {
+           
+            return item[0].includes(txt.value) || item[1]==txt.value
+        })
+        
+        htm=''
+        np.map((item)=>{
+            htm+=`<table border='1' cellspacing='0' cellpadding='5'>`
+            htm+=`<tr><th><img src='/images/${item[0]}.png' width='80'></th></tr>`
+            htm+=`<tr><td>Product Name:${item[0]}<br>Product Price:${item[1]}</td></tr>`
+            htm+=`<table>`
+        })
+        result.innerHTML=htm
+    }
+</script>
+
+<html>
+    <input onkeyup="call()" type="text" placeholder="Search here...." id="txt"> 
+    <div id="result"></div>    
+</html>
+
+reduce((item1,item2)=>{},[initial value])
+===================================
+Example1
+---------
+<script>
+    function call() {
+        var price = [90,50,33,45,66,77]
+        var t=price.reduce((a,b)=>{
+            return a+b
+            
+        },0)
+        result.innerHTML=t
+    }
+</script>
+
+<html>
+<input type="submit" value="Click Here" onclick="call()"><br><br>    
+<div id="result"></div>    
+</html>
+Example Two
+------------
+<script>
+    function call() {
+        var price = [['Lux',90,40],['Margo',50,45],['Dove',90,50],['Liril',60,45]]
+        var ap=price.reduce((a,b)=>{
+            return a+b[1]
+
+        },0)
+        var pp=price.reduce((a,b)=>{
+            return a+b[2]
+
+        },0)
+        var saving=ap-pp
+        
+        result.innerHTML=`Net Amount:${ap}<br><br>Payable Amount:${pp}<br><br>U Save:${saving}`
+
+    }
+</script>
+
+<html>
+<input type="submit" value="Click Here" onclick="call()"><br><br>    
+<div id="result"></div>    
+</html>
+
+sort((a,b)=>{})
+===============
+Example1
+--------
+<script>
+    function call() {
+        // var price = [['Lux',90,40],['Margo',50,45],['Dove',90,50],['Liril',60,45]]
+        var n=[78,67,45,23,45,22,12]
+        k=n.sort((a,b)=>a>b?1:-1)   // 1 for interchange the value
+        console.log(k)
+    }
+</script>
+
+<html>
+<input type="submit" value="Click Here" onclick="call()"><br><br>    
+<div id="result"></div>    
+</html>
+Example2
+--------
+<script>
+    function call() {
+        var price = [['Lux',90,40],['Margo',50,45],['Dove',90,50],['Liril',600,45]]
+
+        k=price.sort((a,b)=>a[1]>b[1]?1:-1)   // 1 for interchange the value
+        console.log(k)
+    }
+</script>
+
+<html>
+<input type="submit" value="Click Here" onclick="call()"><br><br>    
+<div id="result"></div>    
+</html>
+Example Assending order
+------------------------
+<script>
+    function call() {
+        var price = [['Lux',90,40],['Margo',50,45],['Dove',90,50],['Liril',600,45]]
+
+        k=price.sort((a,b)=>a[1]>b[1]?-1:1)   // 1 for interchange the value
+        console.log(k)
+    }
+</script>
+
+<html>
+<input type="submit" value="Click Here" onclick="call()"><br><br>    
+<div id="result"></div>    
+</html>
+
+Example3
+---------
+<script>
+    function call() {
+        var price = [['Lux',90,40],['Margo',50,45],['Dove',90,50],['Liril',600,45]]
+
+        k=price.sort((a,b)=>a[0]>b[0]?1:-1)   // 1 for interchange the value
+        console.log(k)
+    }
+</script>
+
+<html>
+<input type="submit" value="Click Here" onclick="call()"><br><br>    
+<div id="result"></div>    
+</html>
+
+
+forEach((item,index)=>{
+
+})
+read array elements one by one 
+
+Example
+--------
+<script>
+    function call() {
+        var price = [['Lux',90,40],['Margo',50,45],['Dove',90,50],['Liril',600,45]]
+        price.forEach((item,index)=>{
+            alert(item[0]+" "+index)
+        })
+      
+    }
+</script>
+
+<html>
+<input type="submit" value="Click Here" onclick="call()"><br><br>    
+<div id="result"></div>    
+</html>
+
+concate()
+=========
+to merge two or more arrays and return a new array 
+without changing the existing array 
+
+Example
+--------
+const arr1 = ["a", "b", "c"]
+const arr2 = ["d", "e", "f"]
+
+console.log(arr1.concat(arr2));   // ["a" , "b", "c" , "d", "e", "f"]
+
+every()
+========
+to checks every element in the array that passes the 
+condition, returning true of false
+
+Example
+-------
+const arr = [1,2,3,4,5,6,7,8,9]
+const gfive=arr.every(num=> num>5)
+console.log(gfive);  //false
+
+const lnine=arr.every(num=> num<9)
+console.log(lnine);  //true
+
+some()
+======
+to checks if at least one element in the array that 
+passes the condition, returning true or false 
+
+Example
+-------
+const arr = [1,2,3,4,5,6,7,8,9]
+const gNum=arr.some(num=> num>5)
+console.log(gNum);  // true
+
+const lNum=arr.every(num=> num<=0)
+console.log(lNum);  //false
+
+includes()
+==========
+to checks if an array includes the elements the elements 
+that passes the condition, returning true or false
+
+Example
+-------
+const arr = [1,2,3,4,5,6]
+console.log(arr.includes(2));  // true
+console.log(arr.includes(7));  // false
+
+join()
+======
+returns a new string by concatenating all of the 
+array's elements separated by the specified separator.
+
+Example
+--------
+const arr = ["m","a","n","d","e","e","p"];
+console.log(arr.join(''));   // mandeep
+
+find()
+========
+returns the value of the first elements of the first elements 
+in an array that pass the test in a testing function.
+
+const arr = [1,2,3,4,5,6,7,8,9,10];
+const found = arr.find(element=> element>5);
+console.log(found);  // 6
+
+findIndex()
+===========
+returns the index of the first elements of the first elements 
+in an array that pass the test in a testing function.
+
+const arr = ["Danny", "Mandeep", "John", "Ruby"];
+const indexFinder = arr.findIndex(element => element ==="Mandeep");
+console.log(indexFinder)
+
+indexOf()
+=========
+returns the index of the first occurrence of the specified
+element in the array, or -1 if it is not found.
+
+const arr = ["Danny", "Mandeep", "John", "Ruby"];
+const indexFinder = arr.IndexOf("Mandeep");
+console.log(indexFinder)
+
+fill()
+=======
+fills the elements in an array with a static value and
+returns the modified array.
+
+const arr = new Array(3);
+console.log(arr);   // [empty, empty, empty]
+console.log(arr.fill(10));  // [10, 10, 10]
+
+
+slice()
+=======
+returns a new array with specified start to end elements
+
+Example
+-------
+ const arr = ['a', 'b', 'c', 'd', 'e']
+        const sliced = arr.slice(2,4)
+        console.log(sliced)  // ['c', 'd']
+        console.log(arr)
+
+reverse()
+=========
+reverses an array in place. Elements at last index
+will be first and element at first index will be last.
+
+Example
+-------
+const arr = [1, 2, 3]
+arr.reverse()
+console.log(arr)  // [3, 2, 1]
+
+push()
+=======
+adds one or more elements to the end of array and 
+returns the new length of the array 
+Example
+--------
+const fruits = ['Apple', 'Peach']
+console.log(fruits.push('Banana'))
+console.log(fruits)
+
+Example2
+--------
+<script>
+    function call() {   
+      var arr = []
+      arr.push('peter')
+      arr.push(6000)
+      arr.push(66.7)
+      arr.push('Alice')
+      console.log(arr)
+
+    }
+</script>
+<html>
+<input type="submit" value="Click Here" onclick="call()"><br><br>
+</html>
+
+pop()
+=====
+remove the last element from the end of the array 
+and returns the element.
+
+Example
+-------
+const fruits=['Apple','Peach']
+fruits.pop()
+console.log(fruits)  // ['Apple']
+
+shift()
+=======
+remove the first element from an array and 
+returns that element
+
+Example
+-------
+const fruits = ['Apple', 'Peach']
+fruits.shift()
+console.log(fruits)  // ['Peach']
+
+unshift()
+=======
+adds one or more elements to the beginning of an
+array and returns the new length of the array.
+
+Example
+-------
+const fruits = ['Apple', 'Peach']
+console.log(fruits.unshift('Banana'))  // 3
+console.log(fruits)  // ['Banana', 'Apple', 'Peach']
+fruits.shift()
+
+splice(index,n)
+===============
+Removes n elements from specified index
+Example
+-------  
+x=[4,4,5,60,1,4,6,7]
+x.splice(2,4) // [4,4,6,7]
+alert(x)
+i=x.indexOf(60)
+x.splice(i,1)
+alert(x)
+
+
+Data Functions
+=============
+
+Example Date Functions 
+----------------------
+<script>
+    function call() { 
+        // class Data
+        var cd=new Date()
+        // result.innerHTML=cd 
+        // result.innerHTML=cd.getDate()+"-"+cd.getMonth()+"-"+cd.getFullYear() 
+        var m=["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"]
+        // result.innerHTML=cd.getDate()+"-"+m[cd.getMonth()]+"-"+cd.getFullYear() 
+        var week=["SUN",'MON',"TUE","WED","THU","FRI","SAT"]
+        // result.innerHTML=cd.getHours()+":"+cd.getMinutes()+":"+cd.getSeconds()+"     "+cd.getMilliseconds()+"     "+week[cd.getDay()]+"        "+cd.getDate()+"-"+m[cd.getMonth()]+"-"+cd.getFullYear() 
+        // var cd=new Date(cd.setDate(50))
+        var cd=new Date(cd.setHours(100))
+        result.innerHTML=cd.getHours()+":"+cd.getMinutes()+":"+cd.getSeconds()+"     "+cd.getMilliseconds()+"     "+week[cd.getDay()]+"        "+cd.getDate()+"-"+m[cd.getMonth()]+"-"+cd.getFullYear() 
+
+    }
+</script>
+
+<html>
+<input type="submit" value="Click Here" onclick="call()"><br><br>
+<div id="result"></div>
+</html>
+
+
+Example Watch with interval 
+---------------------------
+<script>
+    var interval
+    function showTime()
+    {
+        var cd=new Date()
+        var m=["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"]
+        var week=["SUN",'MON',"TUE","WED","THU","FRI","SAT"]
+        result.innerHTML=cd.getHours()+":"+cd.getMinutes()+":"+cd.getSeconds()+"     "+cd.getMilliseconds()+"     "+week[cd.getDay()]+"        "+cd.getDate()+"-"+m[cd.getMonth()]+"-"+cd.getFullYear() 
+        
+    }
+
+    function start()
+    {
+        interval=setInterval(showTime,1)
+    }
+    
+    function stop()
+    {
+        clearInterval(interval)
+    }
+</script>
+
+<html>
+<input type="submit" value="Start" onclick="start()">
+<input type="submit" value="Stop" onclick="stop()"><br><br>
+<div id="result"></div>
+</html>
+
+Example of Math Functions 
+--------------------------
+<script>
+    function call()
+    {
+        // alert(Math.abs(-200))
+        // alert(Math.sin(90*(22.0/7.0)/180))
+        // alert(Math.ceil(5.1))    // 6
+        // alert(Math.floor(5.9))     // 5
+        // alert(Math.max(33,90,12,78,23))     // 90
+        // alert(Math.min(33,90,12,78,23))     // 90
+        // alert(Math.pow(2,3))     // 8
+        // alert(Math.random())     
+        // alert(Math.sqrt(49))     // 7
+        alert(Math.tan(45))     // 8
+
+    }
+
+</script>
+
+<html>
+<input type="submit" value="Start" onclick="call()"><br><br>
+<div id="result"></div>
+</html>
+
+abs(x)
+======
+Absolute value of x(positive value)
+Example
+alert(Math.abs(-200))
+
+sin(x)
+======
+sin of x (x in radians)
+Example
+alert(Math.sin(90*(22.0/7.0)/180))
+
+ceil(x)
+========
+Value of x rounded up to the nearest integer
+Example
+alert(Math.ceil(77.01))  // 78
+
+floor()
+========
+Value of x rounded below to the nearest integer
+Example
+alert(Math.floor(77.99999))  // 77
+
+log()
+=====
+Natural logarithm (base E) of x
+Example
+alert(Math.log(45))  // 3.8066624897703196
+
+max(a,b,......)
+================
+Highest value 
+Example
+alert(Math.max(88,77,888))  // 888
+
+min(a,b,......)
+================
+Lowest value 
+Example
+alert(Math.min(88,77,888))  // 77
+
+pow(x,y)
+========
+Value of x to power of y 
+Example
+alert(Math.pow(7,5))  // 16807
+
+Random()
+======== 
+rendom number between 0 and 1 
+Example
+
+Random OTP Generation Logic
+---------------------------
+<script>
+    function call()
+    {
+        alert(parseInt(Math.random()*899999+100000))  
+    }
+
+</script>
+
+<html>
+<input type="submit" value="Start" onclick="call()"><br><br>
+<div id="result"></div>
+</html>
+
+Example Of Animations
+======================
+<script>
+    var i=1
+    var interval
+    function animate()
+    {
+        var pic=i+".png"
+        cat.src=pic 
+        i++
+        if(i==9)
+        {i=1}
+
+    }
+
+    function start()
+    {
+        interval=setInterval(animate,100)
+    }
+
+    function stop()
+    {
+        clearInterval(interval)
+    }
+
+
+</script>
+
+<html>
+<input type="button" value="Start" onclick="start()">
+<input type="button" value="Stop" onclick="stop()">
+<br><br>
+<center>
+    <img id="cat">
+</center>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+

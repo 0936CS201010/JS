@@ -1,0 +1,27 @@
+
+<script>
+//ss123@gmail.com  // check it valid or not means email or not 
+    function call()
+    {   var myemail=txt.value
+        var error=false
+        pic.width=10
+        for(i=0;i<myemail.length;i++)
+        {
+            x=myname.charCodeAt(i)
+            if(!((x>=97 && x<=122) || (x>=65 && x<=90) || x==64))
+            { error=true
+              break }
+            
+        }
+        if(error)
+        pic.src="/images/cross.png"
+        else
+        pic.src="/images/tick.png"
+
+
+    }
+</script>
+<html>
+    <input type="text" id="txt" placeholder="Enter Email" onkeyup="call()">
+    <img id="pic" />
+</html>
